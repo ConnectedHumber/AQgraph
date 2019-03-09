@@ -1,9 +1,6 @@
 import datetime
 import json
 import urllib.request
-from flask import Flask
-from flask import render_template
-app = Flask(__name__)
 
 
 def grab_sensor_list():
