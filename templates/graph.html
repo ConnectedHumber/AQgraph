@@ -23,7 +23,7 @@
 
 
     var options = {
-          title: '{{sensor_data.get(key)[0]["name"]}}',
+          title: 'Sensor {{sensor_data.get(key)[0]["name"]}} | {{sensor_data.get(key)[2]["Response"]["View"][0]["Result"][0]["Location"]["Address"]["Street"]}}, {{sensor_data.get(key)[2]["Response"]["View"][0]["Result"][0]["Location"]["Address"]["City"]}} (approx location)',
           curveType: 'function',
           legend: { position: 'bottom' }
         };
