@@ -4,11 +4,8 @@ import urllib.request
 
 
 def reverse_geocode(lat, lon):
-    appid = "grab code from here.com"
-    appcode = "grab code from here.com"
-    url = "https://reverse.geocoder.api.here.com/6.2/reversegeocode.json?prox=" \
-          + lat + "%2C" + lon + "%2C50&mode=retrieveAddresses&maxresults=1&gen=9&app_id=" \
-          + appid + "&app_code=" + appcode
+    url = "https://nominatim.openstreetmap.org/search.php?q=" \
+    + lat  + "%2C" + lon + "&addressdetails=1&format=json"
     data = urllib.request.urlopen(url)
     location_details = json.loads(data.read())
     return location_details

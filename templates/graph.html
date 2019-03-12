@@ -7,10 +7,10 @@
 
       {% for key in sensor_data %}
 
-       google.charts.setOnLoadCallback(draw{{sensor_data.get(key)[0]["name"]}}Chart);
+       google.charts.setOnLoadCallback(draw{{sensor_data.get(key)[0]["name"]|replace("-", "_")}}Chart);
 
 
-      function draw{{sensor_data.get(key)[0]["name"]}}Chart() {
+function draw{{sensor_data.get(key)[0]["name"]|replace("-", "_")}}Chart() {
         var data = new google.visualization.DataTable();
         data.addColumn('datetime', 'Datetime');
         data.addColumn('number', 'PM2.5');
@@ -23,12 +23,12 @@
 
 
     var options = {
-          title: 'Sensor {{sensor_data.get(key)[0]["name"]}} | {{sensor_data.get(key)[2]["Response"]["View"][0]["Result"][0]["Location"]["Address"]["Street"]}}, {{sensor_data.get(key)[2]["Response"]["View"][0]["Result"][0]["Location"]["Address"]["City"]}} (approx location)',
+          title: 'Sensor {{sensor_data.get(key)[0]["name"]}} | {{sensor_data.get(key)[2][0]["address"]["road"]}}, {{sensor_data.get(key)[2][0]["address"]["suburb"]}}',
           curveType: 'function',
           legend: { position: 'bottom' }
         };
 
-        var chart = new google.visualization.LineChart(document.getElementById('{{sensor_data.get(key)[0]["name"]}}Chart'));
+        var chart = new google.visualization.LineChart(document.getElementById('{{sensor_data.get(key)[0]["name"]|replace("-", "_")}}Chart'));
 
         chart.draw(data, options);
       }
@@ -53,7 +53,7 @@
 </head>
   <body>
         {% for key in sensor_data %}
-    <div id="{{sensor_data.get(key)[0]["name"]}}Chart" style="width: 900px; height: 500px"></div>
+	<div id="{{sensor_data.get(key)[0]["name"]|replace("-", "_")}}Chart" style="width: 900px; height: 500px"></div>
        {% endfor %}
 
   </body>
