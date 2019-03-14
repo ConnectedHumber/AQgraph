@@ -1,5 +1,9 @@
 **Setup AQgraph in a development environment on Ubuntu**
 
+*The easiest way is to setup a development environment is to install PyCharm, add Flask and Flask-cached to your development environment in 'preferences', and switch to the FileSystemCache by uncommenting the appropriate line in aq.py.*
+
+Alternatively...
+
 Install and configure apache, memcached and mod-wsgi-py3 (config not covered here). This is a brief overview. Ensure you secure and configure your installation correctly in production.
 
     sudo apt-get install apache2
