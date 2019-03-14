@@ -8,7 +8,8 @@ from wsgiref.handlers import format_date_time
 from time import mktime
 
 
-cache = Cache(config={'CACHE_TYPE': 'filesystem', 'CACHE_DIR': './cache'})
+#cache = Cache(config={'CACHE_TYPE': 'filesystem', 'CACHE_DIR': './cache'})
+cache = Cache(config={'CACHE_TYPE': 'memcached', 'CACHE_KEY_PREFIX': 'AQgraph283'})
 app = Flask(__name__)
 cache.init_app(app)
 
