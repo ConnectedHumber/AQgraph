@@ -1,9 +1,10 @@
 **Setup AQgraph in a development environment on Ubuntu**
 
-Install and configure apache and mod-wsgi-py3 (config not covered here). This is a brief overview. Ensure you secure and configure your installation correctly in production.
+Install and configure apache, memcached and mod-wsgi-py3 (config not covered here). This is a brief overview. Ensure you secure and configure your installation correctly in production.
 
     sudo apt-get install apache2
     sudo apt-get install libapache2-mod-wsgi-py3
+    sudo apt-get install memcached
 
 Make a directory to serve from
 
@@ -20,7 +21,7 @@ Activate the virtual environment
 
     source venv/bin/activate
 
-Install the pre-reqs into your virtual environmen
+Install the pre-reqs into your virtual environment
 
     pip install Flask
     pip install Flask-cached
