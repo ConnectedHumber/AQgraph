@@ -21,11 +21,26 @@ function draw{{sensor_data.get(key)[0]["name"]|replace("-", "_")}}Chart() {
                     {%- endfor -%}
         ]);
 
+    var date = new Date();
 
     var options = {
           title: 'Sensor {{sensor_data.get(key)[0]["name"]}} | {{sensor_data.get(key)[2][0]["address"]["road"]}}, {{sensor_data.get(key)[2][0]["address"]["suburb"]}}',
           curveType: 'none',
-          legend: { position: 'bottom' }
+          legend: { position: 'bottom' },
+          hAxis: {ticks: [
+                new Date(date.setHours(date.getHours() - 24)),
+                new Date(date.setHours(date.getHours() + 2)),
+                new Date(date.setHours(date.getHours() + 2)),
+                new Date(date.setHours(date.getHours() + 2)),
+                new Date(date.setHours(date.getHours() + 2)),
+                new Date(date.setHours(date.getHours() + 2)),
+                new Date(date.setHours(date.getHours() + 2)),
+                new Date(date.setHours(date.getHours() + 2)),
+                new Date(date.setHours(date.getHours() + 2)),
+                new Date(date.setHours(date.getHours() + 2)),
+                new Date(date.setHours(date.getHours() + 2)),
+                new Date(date.setHours(date.getHours() + 2)),
+                                ]}
         };
 
         var chart = new google.visualization.LineChart(document.getElementById('{{sensor_data.get(key)[0]["name"]|replace("-", "_")}}Chart'));
