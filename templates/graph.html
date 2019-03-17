@@ -24,7 +24,7 @@ function draw{{sensor_data.get(key)[0]["name"]|replace("-", "_")}}Chart() {
 
     var options = {
           title: 'Sensor {{sensor_data.get(key)[0]["name"]}} | {{sensor_data.get(key)[2][0]["address"]["road"]}}, {{sensor_data.get(key)[2][0]["address"]["suburb"]}}',
-          curveType: 'function',
+          curveType: 'none',
           legend: { position: 'bottom' }
         };
 
